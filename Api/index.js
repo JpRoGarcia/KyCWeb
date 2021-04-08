@@ -11,7 +11,7 @@ app.use(routers);
 
 
 // Iniciando el Api 
-const port = 3000
+const port = 3002
 app.listen(port, () => {
     console.log(`API node: http://localhost:${port}/`);
 });
