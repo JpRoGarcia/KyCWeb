@@ -8,8 +8,7 @@ const routers = require('./routers/index');
 app.use(routers);
 
 // static files
-const views = express.static(path.join(__dirname, 'public'))
-app.use(views);
+app.use(express.static(path.join(__dirname, 'public')));
 
 // Iniciando el Api 
 const port = 3000
