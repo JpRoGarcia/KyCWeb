@@ -7,6 +7,9 @@ app.use(express.json());
 const routers = require('./routers/index');
 app.use(routers);
 
+// static files
+const views = express.static(path.join(__dirname, 'public'))
+app.use(views);
 
 // Iniciando el Api 
 const port = 3000
