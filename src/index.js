@@ -11,7 +11,7 @@ app.use(morgan('dev'))
 //app.use(routers);
 
 app.get('/', (req, res) => {
-    res.sendDate(path.join(__dirname, views));
+    res.sendDate(path.join(__dirname, services));
 });
 
 // middlewares
