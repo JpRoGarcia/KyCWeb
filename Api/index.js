@@ -6,12 +6,13 @@ const path = require('path');
 //Settings
 app.set('views', path.join(__dirname, 'views'))
 app.set('view engine', 'ejs')
+app.engine('html', require('ejs').renderFile);
 
 app.use(express.json());
 app.use(morgan('dev'))
 
 // Routers
-const routers = require('./routers/');
+const routers = require('./routers/index.js');
 app.use(routers);
 
 // Iniciando el Api 
