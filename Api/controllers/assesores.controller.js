@@ -1,14 +1,14 @@
-const _pg=require('../services/postgress.service');
+const ab =require('../services/postgress.service');
 
 //Obtener y Mostrar Todos los Usuarios de la Base de Datos
-const getUsers = async (req, res) => {
+const getassesores = async (req, res) => {
     try {
         //Conectar con la Base de Datos y Recolectar los Usuarios
-        let sql = `SELECT * FROM emprendedores`;
+        let sql = `SELECT * FROM assesores`;
 
 
         //Envia Informacion a la Base de datos y esperar Respuesta
-        let response_db = await _pg.execute(sql);
+        let response_db = await ab.execute(sql);
         let rows = response_db.rows;
 
         //Envia una Alerta
@@ -20,16 +20,16 @@ const getUsers = async (req, res) => {
 }
 
 //Guardar Nuevos Usuarios en la Base de Datos
-const saveUsers = async (req, res) => {
+const saveassesores = async (req, res) => {
     try {
         //Guardar la Informacion y Conectar con la Base de Datos
         let user = req.body;
-        let sql = `INSERT INTO emprendedores
-        (cedula, nonbre, apellido, correo, contra, confirmarcontra, celular, telefono)
-        VALUES('${user.cedula}', '${user.nonbre}', '${user.apellido}', '${user.correo}', '${user.contra}', '${user.confirmarcontra}', '${user.celular}', '${user.telefono}');`
+        let sql = `INSERT INTO assesores
+        (cedula, nombre, apellido, correo, contra, correciondecontra)
+        VALUES('${user.cedula}', '${user.nombre}', '${user.apellido}', '${user.correo}', '${user.contra}', '${user.correciondecontra}');`
       
         //Envia Informacion a la Base de datos y esperar Respuesta
-        await _pg.execute(sql);
+        await ab.execute(sql);
 
         //Envia una Alerta
         return res.send({
@@ -48,15 +48,15 @@ const saveUsers = async (req, res) => {
 }
 
 //Eliminar Usuario de la Base de Datos
-const deleteUsers = async (req, res) => {
+const deleteassesores = async (req, res) => {
     try {
         //Conectar con la Base de Datos y Mediante la ID eliminar el Usuario
         let cedula = req.params.cedula;
-        let sql = `DELETE FROM emprendedores
+        let sql = `DELETE FROM assesores
         WHERE cedula='${cedula}'`;
 
         //Envia Informacion a la Base de datos y esperar Respuesta
-        let response_db = await _pg.execute(sql);
+        let response_db = await ab.execute(sql);
         let row_count = response_db.rowCount;
 
         //Envia una Alerta
@@ -76,17 +76,17 @@ const deleteUsers = async (req, res) => {
 }
 
 //Actualizar la Informacion del Usuario(Rol Favorito y Arma Favorita)
-const updateUsers = async (req, res) => {
+const updateassesores = async (req, res) => {
     try { 
         //Conectar con la Base de Datos y Recoger la Informacion para Actualizar
         let cedula = req.params.cedula;
         let user = req.body;
-        let sql = `UPDATE emprendedores
-        SET correo='${user.correo}', contra='${user.contra}', confirmarcontra='${user.confirmarcontra}', celular='${user.celular}', telefono='${user.telefono}'
-        WHERE cedula='${cedula}'`;
+        let sql = `UPDATE assesores
+        SET correo='${user.correo}', contra='${user.contra}', correciondecontra='${user.correciondecontra}'
+        WHERE cedula='${cedula}';`;
 
         //Envia Informacion a la Base de datos y esperar Respuesta
-        let response_db = await _pg.execute(sql);
+        let response_db = await ab.execute(sql);
         let row_count = response_db.rowCount;
 
       //Envia una Alerta
@@ -106,4 +106,4 @@ const updateUsers = async (req, res) => {
 };
 
 
-module.exports = { getUsers, saveUsers, deleteUsers, updateUsers };
+module.exports = { getassesores, saveassesores, deleteassesores, updateassesores };

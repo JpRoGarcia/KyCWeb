@@ -1,8 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const userController = require("../controllers/emprendedor.controller")
-
-
+const assesoresController = require("../controllers/assesores.controller")
+/*
 router.get('/', (req, res) => {
   res.render('index.html', {title: "Inicio"});
 });
@@ -29,18 +29,29 @@ router.get('/InicioSesion', (req, res) => {
 
 router.get('/Registro', (req, res) => {
   res.render('registro.html', {title: "Registro"});
-});
-/*
-//Ruta para la creacion de Usuarios
+});*/
+
+//Ruta para la creacion de emprendedor
 router.post("/usuarios", userController.saveUsers);
 
-//Ruta para eliminar un Usuario
+//Ruta para la creacion de assesores
+router.post("/assesores", assesoresController.saveassesores);
+
+//Ruta para eliminar un emprendedor
 router.delete("/usuarios/:cedula", userController.deleteUsers);
 
-//Ruta para ver Todos los Usuarios
+//Ruta para eliminar un assesores
+router.delete("/assesores/:cedula", assesoresController.deleteassesores);
+
+//Ruta para ver Todos los emprendedor
 router.get("/usuarios", userController.getUsers);
 
-//Ruta para Modificar un Usuario
+//Ruta para ver Todos los assesor
+router.get("/assesores", assesoresController.getassesores);
+
+//Ruta para Modificar un emprendedor
 router.put("/usuarios/:cedula", userController.updateUsers);
-*/
+
+//Ruta para Modificar un assesor
+router.put("/assesores/:cedula", assesoresController.updateassesores);
 module.exports = router; 
