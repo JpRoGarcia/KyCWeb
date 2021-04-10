@@ -24,11 +24,11 @@ router.get('/Contacto', (req, res) => {
 });
 
 router.get('/InicioSesion', (req, res) => {
-  res.render('InicioSesion.html', {title: "Inicio Sesion"});
+  res.render('iniciosesion.html', {title: "Inicio Sesion"});
 });
 
 router.get('/Registro', (req, res) => {
-  res.render('Registrar.html', {title: "Registro"});
+  res.render('registro.html', {title: "Registro"});
 });
 /*
 //Ruta para la creacion de Usuarios
