@@ -10,6 +10,76 @@
 </head>
 <body>
     <%- include('partials/menu.html') %>
-    <h1>Probando con Jessica</h1>
+    <div class="container">
+    <form class="row g-2 needs-validation" action="">
+        
+            <br><h1>DATOS DE LA EMPRESA</h1><br>
+            <div class="form-group">
+                <label for="NIT" class="form-label">NIT de la empresa</label>
+                <input type="text" class="form-control" id="NIT" placeholder="Ejemplo" required>
+                <div class="valid-feedback">Valid.</div>
+                <div class="invalid-feedback">Please fill out this field.</div>
+             </div><br>
+             <div class="form-group">
+                <label for="nombre" class="form-label">NOMBRE DE LA EMPRESA</label>
+                <input type="text" class="form-control" id="nombre" placeholder="Ejemplo" required>
+             </div><br>
+             <div class="form-group">
+                <label for="emprendedor" class="form-label">CEDULA DEL REPRESENTANTE</label>
+                <input type="text" class="form-control" id="emprendedor" placeholder="Ejemplo" required>
+             </div><br>
+             <div class="form-group">
+                <label for="archivo1" class="form-label">FOTOCOPIA DE LA CÉDULA</label>
+                <input class="form-control" type="file" id="archivo1">
+              </div><br>
+            <div class="form-group">
+                <label for="direccion" class="form-label">UBICACIÓN DE LA EMPRESA</label>
+                <input type="text" class="form-control" id="direccion" placeholder="CALLE 00 # 00 00" required>
+            </div><br>
+            <div class="col-md-5">
+                <label for="telefono_empresa" class="form-label" pattern="[0-9]{3} [0-9]{2} [0-9]{2}" required>TELÉFONO DE LA EMPRESA</label>
+                <input type="tel" class="form-control" id="telefono_empresa" placeholder="123 45 67">
+            </div><br>
+            <div class="col-md-5">
+                <label for="numero_empleados" class="form-label">NÚMERO DE EMPLEADOS</label>
+                <input type="number" class="form-control" id="numero_empleados" placeholder="" required>
+            </div><br>
+            <div class="form-group">
+                <label for="actividad_empresa" class="form-label">ANTIVIDAD QUE REALIZA LA EMPRESA</label>
+                <textarea class="form-control" id="actividad_empresa" rows="3" required></textarea>
+            </div><br>
+            <div class="form-group">
+                <label for="archivo2" class="form-label">ACTA DE CONSTITUCIÓN</label>
+                <input class="form-control" type="file" id="archivo2" >
+            </div><br>
+            <div class="form-group">
+                <label for="archivo3" class="form-label">ESCRITURA PÚBLICA</label>
+                <input class="form-control" type="file" id="archivo3">
+            </div><br>
+            <div class="form-group">
+                <label for="archivo4" class="form-label">COMPROBANTE DE CÁMARA DE COMERCIO</label>
+                <input class="form-control" type="file" id="archivo4">
+            </div><br>
+            <div class="form-group">
+                <label for="archivo5" class="form-label">CERTIFICADO DE EXISTENCIA Y REPRENSETACIÓN LEGAL</label>
+                <input class="form-control" type="file" id="archivo5">
+            </div><br>
+            <div class="form-group">
+                <label for="archivo6" class="form-label">INCRIPCIÓN DE LIBROS</label>
+                <input class="form-control" type="file" id="archivo6">
+            </div><br>
+            <div class="form-group">
+                <label for="archivo7" class="form-label">COMPROBANTE DE CUMPLIMIENTO DE LAS NORMAS DE USO DEL SUELO</label>
+                <input class="form-control" type="file" id="archivo2">
+            </div><br>
+            <div class="form-group">
+                <label for="archivo8" class="form-label">REGISTRO EMPRESARIAL</label>
+                <input class="form-control" type="file" id="archivo8">
+            </div>
+            <div class="col-12">
+                <button class="btn btn-primary" type="submit">Guardar y Enviar</button>
+            </div><br><br>
+    </form>
+    </div>
 </body>
 </html>
