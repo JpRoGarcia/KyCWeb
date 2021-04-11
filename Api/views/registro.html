@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><%= title %></title>
     <%- include('partials/head.html') %>
-    <script type="text/javascript"  src="js/prueba.js"></script>
+    <script type="text/javascript"  src="js/emprendedor.js"></script>
 </head>
 <body>
     <%- include('partials/menu.html') %>
@@ -19,7 +19,7 @@
         <form class="row g-3 needs-validation">
           <div class="col-md-4">
             <label for="validationCustom02" class="form-label">Cedula</label>
-            <input type="text" class="form-control" id="cedulaR">
+            <input type="text" class="form-control" id="CedulaR">
           </div>
             <div class="col-md-4">
               <label for="validationCustom01" class="form-label">Nombre</label>
@@ -52,14 +52,14 @@
             </div>
             <div class="col-12">
               <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+                <input class="form-check-input" type="checkbox" value="" id="Validar" required>
                 <label class="form-check-label" for="invalidCheck">
                   Aceptar Teminos y Condiciones
                 </label>
               </div>
             </div>
             <div class="col-12">
-              <button type="button" id='testButton' onclick="enviarAlerta()">Enviar</button>
+              <button type="button" id='testButton' onclick="registroEmprendor()">Enviar</button>
             </div>
           </form>
     </div>
