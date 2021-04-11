@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,63 +8,47 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><%= title %></title>
     <%- include('partials/head.html') %>
-
+    <script type="text/javascript"  src="../controllers/SaveUsuario.controller.js"></script>
 </head>
 <body>
     <%- include('partials/menu.html') %>
-    <div class="container">
-        <p><h1>Registro</h1></p>
+    <div class="container", style="text-align-last: center">
+      <p><h1>Registro Usuario</h1><p>
     </div>
-    
     <div class="container">
-        <form class="row g-3 needs-validation" novalidate>
+        <form class="row g-3 needs-validation">
           <div class="col-md-4">
             <label for="validationCustom02" class="form-label">Cedula</label>
-            <input type="text" class="form-control" id="validationCustom02" value="" required>
-            <div class="valid-feedback">
-              Looks good!
-            </div>
+            <input type="text" class="form-control" id="cedulaR">
           </div>
             <div class="col-md-4">
               <label for="validationCustom01" class="form-label">Nombre</label>
-              <input type="text" class="form-control" id="validationCustom01" value="" required>
-              <div class="valid-feedback">
-                Looks good!
-              </div>
+              <input type="text" class="form-control" id="NombreR">
             </div>
             <div class="col-md-4">
               <label for="validationCustom02" class="form-label">Apellido</label>
-              <input type="text" class="form-control" id="validationCustom02" value="" required>
-              <div class="valid-feedback">
-                Looks good!
-              </div>
+              <input type="text" class="form-control"  id="ApellidoR">
             </div>
             <div class="col-md-4">
               <label for="exampleInputEmail1" class="form-label">Correo Electronico</label>
-              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+              <input type="email" class="form-control" id="CorreoR" aria-describedby="emailHelp">
               <div id="emailHelp"></div>
             </div>
             <div class="col-md-4">
               <label for="exampleInputPassword1" class="form-label">Contraseña</label>
-              <input type="password" class="form-control" id="exampleInputPassword1">
+              <input type="password" class="form-control" id="ContraR">
             </div>
             <div class="col-md-4">
               <label for="exampleInputPassword1" class="form-label">Confirmar Contraseña</label>
-              <input type="password" class="form-control" id="exampleInputPassword1">
+              <input type="password" class="form-control" id="ConfirmarContraR">
             </div>
             <div class="col-md-4">
               <label for="validationCustom01" class="form-label">Celular</label>
-              <input type="tel" class="form-control" id="validationCustom01" value="" required>
-              <div class="valid-feedback">
-                Looks good!
-              </div>
+              <input type="tel" class="form-control" id="CelularR" value="" required>
             </div>
             <div class="col-md-4">
               <label for="validationCustom01" class="form-label">Telefono</label>
-              <input type="tel" class="form-control" id="validationCustom01" value="" required>
-              <div class="valid-feedback">
-                Looks good!
-              </div>
+              <input type="tel" class="form-control" id="TelefonoR" value="" required>
             </div>
             <div class="col-12">
               <div class="form-check">
@@ -70,13 +56,10 @@
                 <label class="form-check-label" for="invalidCheck">
                   Aceptar Teminos y Condiciones
                 </label>
-                <div class="invalid-feedback">
-                  You must agree before submitting.
-                </div>
               </div>
             </div>
             <div class="col-12">
-              <button class="btn btn-primary" type="submit">Enviar</button>
+              <button type="button" id='testButton' onclick="Usuario()">Enviar</button>
             </div>
           </form>
     </div>
