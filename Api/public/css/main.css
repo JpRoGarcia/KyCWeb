@@ -7,12 +7,16 @@ body {
 }
 
 .navbar-brand {
-font-family: 'New Tegomin', serif;
+  font-family: 'New Tegomin', serif;
   font-size: 2rem;
 }
 
 .nav-link {
   text-transform: uppercase;
+  font-family: 'New Tegomin', serif;
+}
+
+.letra{
   font-family: 'New Tegomin', serif;
 }
 
