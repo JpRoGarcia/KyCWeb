@@ -9,30 +9,30 @@
 
 </head>
 <body>
-    <%- include('partials/menu.html') %>
+    <%- include('partials/menu.html') %><br>
     <div class="container">
     <form class="row g-2 needs-validation" action="">
         
-            <br><h1>DATOS DE LA EMPRESA</h1><br>
-            <div class="form-group">
+            <br><h1 class="display-4">DATOS DE LA EMPRESA</h1><br>
+            <div class="col-md-6">
                 <label for="NIT" class="form-label">NIT de la empresa</label>
-                <input type="text" class="form-control" id="NIT" placeholder="Ejemplo" required>
+                <input type="text" class="form-control" id="NIT" placeholder="Escriba el NIT" required>
                 <div class="valid-feedback">Valid.</div>
                 <div class="invalid-feedback">Please fill out this field.</div>
              </div><br>
-             <div class="form-group">
-                <label for="nombre" class="form-label">NOMBRE DE LA EMPRESA</label>
-                <input type="text" class="form-control" id="nombre" placeholder="Ejemplo" required>
+             <div class="col-md-6">
+                <label for="emprendedor" class="form-label">CÉDULA DEL REPRESENTANTE</label>
+                <input type="text" class="form-control" id="emprendedor" placeholder="1234567890" required>
              </div><br>
-             <div class="form-group">
-                <label for="emprendedor" class="form-label">CEDULA DEL REPRESENTANTE</label>
-                <input type="text" class="form-control" id="emprendedor" placeholder="Ejemplo" required>
-             </div><br>
-             <div class="form-group">
+             <div class="col-md-12">
                 <label for="archivo1" class="form-label">FOTOCOPIA DE LA CÉDULA</label>
-                <input class="form-control" type="file" id="archivo1">
+                <input class="form-control" type="file" id="archivo1" disabled>
               </div><br>
-            <div class="form-group">
+             <div class="col-md-12">
+                <label for="nombre" class="form-label">NOMBRE DE LA EMPRESA</label>
+                <input type="text" class="form-control" id="nombre" placeholder="Escriba el nombre de la empresa" required>
+             </div><br>
+            <div class="col-md-12">
                 <label for="direccion" class="form-label">UBICACIÓN DE LA EMPRESA</label>
                 <input type="text" class="form-control" id="direccion" placeholder="CALLE 00 # 00 00" required>
             </div><br>
@@ -44,37 +44,37 @@
                 <label for="numero_empleados" class="form-label">NÚMERO DE EMPLEADOS</label>
                 <input type="number" class="form-control" id="numero_empleados" placeholder="" required>
             </div><br>
-            <div class="form-group">
-                <label for="actividad_empresa" class="form-label">ANTIVIDAD QUE REALIZA LA EMPRESA</label>
-                <textarea class="form-control" id="actividad_empresa" rows="3" required></textarea>
+            <div class="col-md-12">
+                <label for="actividad_empresa" class="form-label">ACTIVIDAD QUE REALIZA LA EMPRESA</label>
+                <textarea class="form-control" id="actividad_empresa" rows="3" placeholder="Describa brevemente la actividad que realiza la empresa" required></textarea>
             </div><br>
-            <div class="form-group">
+            <div class="col-md-6">
                 <label for="archivo2" class="form-label">ACTA DE CONSTITUCIÓN</label>
-                <input class="form-control" type="file" id="archivo2" >
+                <input class="form-control" type="file" id="archivo2" disabled>
             </div><br>
-            <div class="form-group">
+            <div class="col-md-6">
                 <label for="archivo3" class="form-label">ESCRITURA PÚBLICA</label>
-                <input class="form-control" type="file" id="archivo3">
+                <input class="form-control" type="file" id="archivo3" disabled>
             </div><br>
-            <div class="form-group">
+            <div class="col-md-6">
                 <label for="archivo4" class="form-label">COMPROBANTE DE CÁMARA DE COMERCIO</label>
-                <input class="form-control" type="file" id="archivo4">
+                <input class="form-control" type="file" id="archivo4" disabled>
             </div><br>
-            <div class="form-group">
+            <div class="col-md-6">
                 <label for="archivo5" class="form-label">CERTIFICADO DE EXISTENCIA Y REPRENSETACIÓN LEGAL</label>
-                <input class="form-control" type="file" id="archivo5">
+                <input class="form-control" type="file" id="archivo50" disabled>
             </div><br>
-            <div class="form-group">
+            <div class="col-md-6">
                 <label for="archivo6" class="form-label">INCRIPCIÓN DE LIBROS</label>
-                <input class="form-control" type="file" id="archivo6">
+                <input class="form-control" type="file" id="archivo6" disabled>
             </div><br>
-            <div class="form-group">
+            <div class="col-md-6">
                 <label for="archivo7" class="form-label">COMPROBANTE DE CUMPLIMIENTO DE LAS NORMAS DE USO DEL SUELO</label>
-                <input class="form-control" type="file" id="archivo2">
+                <input class="form-control" type="file" id="archivo2" disabled>
             </div><br>
-            <div class="form-group">
+            <div class="col-md-6">
                 <label for="archivo8" class="form-label">REGISTRO EMPRESARIAL</label>
-                <input class="form-control" type="file" id="archivo8">
+                <input class="form-control" type="file" id="archivo8" disabled>
             </div>
             <div class="col-12">
                 <button class="btn btn-primary" type="submit">Guardar y Enviar</button>

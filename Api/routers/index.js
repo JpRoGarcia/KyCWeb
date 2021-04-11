@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const userController = require("../controllers/emprendedor.controller")
 const assesoresController = require("../controllers/assesores.controller")
-/*
+
 router.get('/', (req, res) => {
   res.render('index.html', {title: "Inicio"});
 });
@@ -29,8 +29,8 @@ router.get('/InicioSesion', (req, res) => {
 
 router.get('/Registro', (req, res) => {
   res.render('registro.html', {title: "Registro"});
-});*/
-
+});
+/*
 //Ruta para la creacion de emprendedor
 router.post("/usuarios", userController.saveUsers);
 
@@ -54,4 +54,5 @@ router.put("/usuarios/:cedula", userController.updateUsers);
 
 //Ruta para Modificar un assesor
 router.put("/assesores/:cedula", assesoresController.updateassesores);
+*/
 module.exports = router; 
