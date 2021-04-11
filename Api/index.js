@@ -17,6 +17,7 @@ app.use(routers);
 
 //prueba jessica
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.urlencoded({ extended: false }))
 
 // Iniciando el Api 
 const port = 3000

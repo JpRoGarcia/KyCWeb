@@ -18,21 +18,22 @@
             <p><h1 style="text-align: center;">BIENVENIDO A<br> Formally Groovy</h1></p>
           </div>
           <div  class="col" style="align-self: center;">
-            <form>
+            <form action="/InicioSesion" method="POST">
               <div class="col-md-8">
-                <label for="exampleInputEmail1" class="form-label   ">Correo eléctrónico</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <label for="exampleInputEmail1" class="form-label">Correo eléctrónico</label>
+                <input class="form-control" type="email"  id="CorreoI" name="Correo" required>
                 <div id="emailHelp" class="form-text"></div>
               </div>
               <div class="col-md-8">
                 <label for="exampleInputPassword1" class="form-label">Contraseña</label>
-                <input type="password" class="form-control" id="exampleInputPassword1">
+                <input class="form-control" type="password" id="Contra1" name="Contraseña" required>
               </div>
-              <div class="mb-3 form-check">
-                <input type="checkbox" class="form-check-input letra" id="exampleCheck1">
-                <label class="form-check-label" for="exampleCheck1">Check me out</label>
+              <div class="col-12">
+                <button type="submit" class="btn btn-primary">Ingresar</button> 
               </div>
-              <button type="submit" class="btn btn-primary">Ingresar</button>
+              <div>
+                <a href="/Registro">Crear Cuenta</a>
+              </div>
           </form>
 
           </div>

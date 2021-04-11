@@ -25,8 +25,8 @@ const saveUsers = async (req, res) => {
         //Guardar la Informacion y Conectar con la Base de Datos
         let user = req.body;
         let sql = `INSERT INTO emprendedores
-        (cedula, nonbre, apellido, correo, contra, confirmarcontra, celular, telefono)
-        VALUES('${user.cedula}', '${user.nonbre}', '${user.apellido}', '${user.correo}', '${user.contra}', '${user.confirmarcontra}', '${user.celular}', '${user.telefono}');`
+        (cedula, nonbre, apellido, correo, contra, celular, telefono)
+        VALUES('${user.cedula}', '${user.nonbre}', '${user.apellido}', '${user.correo}', '${user.contra}',  '${user.celular}', '${user.telefono}');`
       
         //Envia Informacion a la Base de datos y esperar Respuesta
         await _pg.execute(sql);
@@ -82,7 +82,7 @@ const updateUsers = async (req, res) => {
         let cedula = req.params.cedula;
         let user = req.body;
         let sql = `UPDATE emprendedores
-        SET correo='${user.correo}', contra='${user.contra}', confirmarcontra='${user.confirmarcontra}', celular='${user.celular}', telefono='${user.telefono}'
+        SET correo='${user.correo}', contra='${user.contra}', celular='${user.celular}', telefono='${user.telefono}'
         WHERE cedula='${cedula}'`;
 
         //Envia Informacion a la Base de datos y esperar Respuesta
