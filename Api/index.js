@@ -15,8 +15,12 @@ app.use(morgan('dev'))
 const routers = require('./routers/index.js');
 app.use(routers);
 
+//prueba jessica
+app.use(express.static(path.join(__dirname, 'public')));
+
 // Iniciando el Api 
 const port = 3000
 app.listen(port, () => {
     console.log(`API node: http://localhost:${port}/`);
 });
+
