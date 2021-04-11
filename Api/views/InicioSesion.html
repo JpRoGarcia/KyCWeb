@@ -10,26 +10,35 @@
 </head>
 <body>
     <%- include('partials/menu.html') %>
-    <div class="container", style="text-align-last: center">
-      <p><h1>Inicio Sesión</h1><p>
+    <div class="container" style="background: linear-gradient(297deg, #8772a1e6 12%, #6d90cc 26%, #9cf6d2 94%
+    ); width: 800px; border-radius: 10px; padding-bottom: 50px; margin-top: 80px;">
+      <p><h1 style="text-align: center;"></h1></p><br><br>
+        <div class="container row align-items-center" >
+          <div  class="col">
+            <p><h1 style="text-align: center;">BIENVENIDO A<br> Formally Groovy</h1></p>
+          </div>
+          <div  class="col" style="align-self: center;">
+            <form>
+              <div class="col-md-8">
+                <label for="exampleInputEmail1" class="form-label">Correo eléctrónico</label>
+                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <div id="emailHelp" class="form-text"></div>
+              </div>
+              <div class="col-md-8">
+                <label for="exampleInputPassword1" class="form-label">Contraseña</label>
+                <input type="password" class="form-control" id="exampleInputPassword1">
+              </div>
+              <div class="mb-3 form-check">
+                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                <label class="form-check-label" for="exampleCheck1">Check me out</label>
+              </div>
+              <button type="submit" class="btn btn-primary">Ingresar</button>
+          </form>
+
+          </div>
+          
+      </div>
   </div>
-    <div class="container", style="text-align-last: center">
-        <form>
-            <div class="col-md-4">
-              <label for="exampleInputEmail1" class="form-label">Email address</label>
-              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-              <div id="emailHelp" class="form-text"></div>
-            </div>
-            <div class="col-md-4">
-              <label for="exampleInputPassword1" class="form-label">Password</label>
-              <input type="password" class="form-control" id="exampleInputPassword1">
-            </div>
-            <div class="mb-3 form-check">
-              <input type="checkbox" class="form-check-input" id="exampleCheck1">
-              <label class="form-check-label" for="exampleCheck1">Check me out</label>
-            </div>
-            <button type="submit" class="btn btn-primary">Enviar</button>
-        </form>
-    </div>
+    
 </body>
 </html>
