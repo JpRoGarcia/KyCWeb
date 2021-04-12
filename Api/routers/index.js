@@ -88,7 +88,7 @@ router.post("/Emprendedor/Registro", async (req, res) => {
     }
 
     if (password1.length < 6) {
-      errors.push({ message: "La Contraseña es muy corta" });
+      errors.push({ message: "La Contraseña es muy Corta" });
     }
 
     if (password1 !== password2) {
@@ -106,7 +106,7 @@ router.post("/Emprendedor/Registro", async (req, res) => {
       await _pg.execute(sql);
 
       //Envia Informacion a la Base de datos y esperar Respuesta
-      req.flash("success_msg", "Registro con Exito, Por Favor Inicia Sesion");
+      req.flash("success_msg", "Registro con Éxito, Por Favor Inicia Sesión");
       res.redirect("/InicioSesion");
     }
 });
@@ -121,7 +121,7 @@ router.post("/InicioSesion", async (req, res) => {
   });
 
   if( !emaili || !passwordi ){
-    errors.push({ message: "Espacio Vacio" });
+    errors.push({ message: "Espacio Vacío" });
   }
 
   if(errors.length > 0){
@@ -137,7 +137,7 @@ router.post("/InicioSesion", async (req, res) => {
     if(validar == 1){
       res.redirect("/I");
     }else{
-      errors.push({ message: "Las Contraseña o Correo son Incorrectos" });
+      errors.push({ message: "La Contraseña o Correo son Incorrectos" });
       res.render('InicioSesion.html', {errors})
     }
   }
