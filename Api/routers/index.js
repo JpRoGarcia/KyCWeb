@@ -70,11 +70,10 @@ router.post("/Emprendedor/Registro", async (req, res) => {
     }
 
     if(errors.length > 0){
-      res.render('/Emprendedor/Registro', {errors})
+      res.render('registro.html', {errors})
     } else {
       let ContraseñaEncriptada = await bcrypt.hash(password1, 10)
       console.log(ContraseñaEncriptada);
-
     }
 
 });
