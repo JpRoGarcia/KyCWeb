@@ -1,13 +1,30 @@
-const bcrypt = require("bcrypt");
 const express = require('express');
+const session = require('express-session')
+const flash = require('express')
+const bcrypt = require("bcrypt");
 const router = express.Router();
-const App = express();
-const userController = require("../controllers/emprendedor.controller")
-const assesoresController = require("../controllers/assesores.controller");
-const { Pool, Query } = require("pg");
-const { query } = require("express");
+const _pg =require('../services/postgress.service');
+const passport = require("passport")
+
+const inizializarPassport = require('./passportConfig')
+
+inizializarPassport(passport);
+
+router.use(flash());
 router.use(express.json());  
 router.use(express.urlencoded()); 
+router.use(passport.initialize())
+router.use(passport.session())
+
+router.use(session({
+  secret: 'secret',
+
+  resave: false,
+
+  saveUninitialized: false
+}))
+
+
 
 router.get('/', (req, res) => {
   res.render('index.html', {title: "Inicio"});
@@ -73,9 +90,23 @@ router.post("/Emprendedor/Registro", async (req, res) => {
       res.render('registro.html', {errors})
     } else {
       let ContraseñaEncriptada = await bcrypt.hash(password1, 10)
-      console.log(ContraseñaEncriptada);
-    }
+      console.log("Contraseña Encriptada: " + ContraseñaEncriptada);
 
+      let sql = `INSERT INTO emprendedores
+      (cedula, nombre, apellido, correo, contra, celular, telefono)
+      VALUES('${id}', '${name}', '${lastname}', '${email}', '${ContraseñaEncriptada}', 
+       '${movil}', '${phone}');`
+    
+      //Envia Informacion a la Base de datos y esperar Respuesta
+      await _pg.execute(sql);
+      return res.redirect("/InicioSesion")
+    }
 });
+
+router.post("/InicioSesion", passport.authenticate('local', {
+  successRedirect: "/Entro",
+  failureRedirect: "/InicioSesion",
+  failureFlash: true
+}))
 
 module.exports = router; 
