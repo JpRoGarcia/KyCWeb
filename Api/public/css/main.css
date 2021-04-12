@@ -68,7 +68,16 @@ header img {
     margin-right: auto;
 }
 
-.bordeMIo{
-  border: #069169 5px outset;
+.ErrorMensaje{
+  font-family: 'New Tegomin';
+  background: #fed7d8;
+  margin-left: auto;
+  margin-right: auto;
 }
 
+.BuenMensaje{
+  font-family: 'New Tegomin';
+  background: #d8fed7;
+  margin-left: auto;
+  margin-right: auto;
+}

@@ -11,13 +11,8 @@
 </head>
 <body>
     <%- include('partials/menu.html') %>
-
-    <ul>
-      <% if (typeof errors != 'undefined') { %> <% errors.forEach(error => { %>
-      <li><%= error.message %></li>
-      <% }) %> <% } %>
-    </ul>
-    
+    <br>
+    <%- include('partials/errores.html') %>
       <section>
         <div class="modal-dialog text-center " >
           <div class="col-sm-12 main-section CentrarConteiner navbar-brand" >

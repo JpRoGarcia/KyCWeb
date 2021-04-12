@@ -1,0 +1,9 @@
+<div class="container">
+  <% if (typeof errors != 'undefined') { %> <% errors.forEach(error => { %>
+  <div class="col-4 ErrorMensaje">
+      <label for="exampleInputEmail1" class="form-label"><li><%= error.message %></li></label><br>
+  </div>
+  <% }) %> <% } %>
+</div>
+
+

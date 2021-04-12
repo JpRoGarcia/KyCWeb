@@ -4,16 +4,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro</title>
     <%- include('partials/head.html') %>
 </head>
 <body>
     <%- include('partials/menu.html') %>
-
-    <ul>
-      <% if (typeof errors != 'undefined') { %> <% errors.forEach(error => { %>
-      <li><%= error.message %></li>
-      <% }) %> <% } %>
-    </ul>
+    <br>
+    <%- include('partials/errores.html') %>
+    
       <section style="padding-bottom: 50px; padding-top: 50px;">
 
         <div class="container letra" style="background: linear-gradient(180deg, rgba(162, 255, 215, 0.568) 29%, rgb(90, 158, 124) 76%);
