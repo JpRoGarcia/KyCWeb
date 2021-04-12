@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title><%= title %></title>
     <%- include('partials/head.html') %>
 
@@ -11,55 +12,46 @@
 <body>
     <%- include('partials/menu.html') %>
 
-    <div class="modal-dialog text-center">
-      <div class="col-sm-8 main-section">
-          <div class="modal-content">
-              <div class="col-12 user-img">
-                  <img src="static/img/user.png" th:src="@{/img/user.png}"/>
-              </div>
-              <form action="/InicioSesion" method="POST">
-                <div class="col-md-8">
-                  <label for="exampleInputEmail1" class="form-label">Correo eléctrónico</label>
-                  <input class="form-control" type="email"  id="CorreoI" name="Correo" required>
-                  <div id="emailHelp" class="form-text"></div>
-                </div>
-                <div class="col-md-8">
-                  <label for="exampleInputPassword1" class="form-label">Contraseña</label>
-                  <input class="form-control" type="password" id="Contra1" name="Contraseña" required>
-                </div>
-                <div class="col-12">
-                  <button type="submit" class="btn btn-primary">Ingresar</button> 
-                </div>
-                <div>
-                  <a href="/Registro">Crear Cuenta</a>
-                </div>
-            </form>
-              
-              <div class="col-12 forgot">
-                  <a href="#">Recordar contrasena?</a>
+      <section>
+        <div class="modal-dialog text-center">
+          <div class="col-sm-8 main-section">
+              <div class="modal-content">
+                  <div class="col-12 user-img">
+                      <!--icono-->
+                  </div>
+                  <form action="/InicioSesion" method="POST">
+                    <div class="form-group">
+                      <i class="bi bi-person-circle"></i>
+                      <label for="exampleInputEmail1" class="form-label">Correo eléctrónico</label>
+                      <input class="form-control" type="email"  id="CorreoI" name="Correo" required>
+                      <div id="emailHelp" class="form-text"></div>
+                    </div>
+                    <div class="form-group">
+                      <i class="bi bi-key-fill"></i>
+                      <label for="exampleInputPassword1" class="form-label">Contraseña</label>
+                      <input class="form-control" type="password" id="Contra1" name="Contraseña" required>
+                    </div>
+                    <div class="form-group">
+                      <button type="submit" class="btn btn-primary"><i class="fas fa-sign-in-alt"></i>Ingresar</button> 
+                    </div>
+                    <div>
+                      <a href="/Registro">Crear Cuenta</a>
+                    </div>
+                    <div class="col-12 forgot">
+                      <a href="#">Olvidé mi Contraseña</a>
+                    </div>
+                </form>
               </div>
           </div>
       </div>
-  </div>
+      </section>
+    
 
 
 
 
 
-    <div class="container letra" style="background: linear-gradient(297deg, #8772a1e6 12%, #6d90cc 26%, #9cf6d2 94%
-    ); width: 800px; border-radius: 10px; padding-bottom: 50px; margin-top: 80px;">
-      <p><h1 style="text-align: center;"></h1></p><br><br>
-        <div class="container row align-items-center" >
-          <div  class="col", class="navbar-brand">
-            <p><h1 style="text-align: center;">BIENVENIDO A<br> Formally Groovy</h1></p>
-          </div>
-          <div  class="col" style="align-self: center;">
-            
-
-          </div>
-          
-      </div>
-  </div>
+    
     
 </body>
 </html>
