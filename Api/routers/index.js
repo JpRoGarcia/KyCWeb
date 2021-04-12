@@ -30,6 +30,11 @@ router.get('/I', (req, res) => {
   res.render('index2.html', {title: "Inicio"});
 });
 
+router.get('/RecuperarContra', (req, res) => {
+  res.render('RecuperarContra.html', {title: "Recuperar Contraseña"});
+});
+
+
 router.get('/Formalizar', (req, res) => {
   res.render('formalizar.html', {title: "Formalizar"});
 });
@@ -137,5 +142,48 @@ router.post("/InicioSesion", async (req, res) => {
     }
   }
 });
+
+router.post("/RecuperarContra", async (req, res) => {
+  let {  emailc, password1c, password2c } = req.body;
+  let errors = [];
+
+  console.log({
+    emailc,
+    password1c,
+    password2c,
+  });
+
+  if (password1c.length < 6) {
+    errors.push({ message: "La Contraseña es muy corta" });
+  }
+
+  if (password1c !== password2c) {
+    errors.push({ message: "Las Contraseñas no Coinciden" });
+  }
+
+  if(errors.length > 0){
+    res.render('RecuperarContra.html', {errors})
+  } else {
+      let sqlCorreo = `SELECT * FROM emprendedores
+      WHERE correo='${emailc}';`
+      let response_db = await _pg.execute(sqlCorreo);
+      let rows = response_db.rows;
+      let validar = rows.length;
+      if(validar == 1){
+        let sql = `UPDATE emprendedores
+        SET contra='${password1c}'
+        WHERE correo='${emailc}'`;
+
+        await _pg.execute(sql);
+
+        req.flash("success_msg", "Contraseña Restaurada, Por favor Inicia Sesión");
+        res.redirect("/InicioSesion");
+
+      }else{
+        errors.push({ message: "El Correo no Existe" });
+        res.render('RecuperarContra.html', {errors})
+      }
+  }
+})
 
 module.exports = router; 

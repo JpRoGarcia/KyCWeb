@@ -17,42 +17,38 @@
       <li><%= error.message %></li>
       <% }) %> <% } %>
     </ul>
-
-    <ul>
-      <% if(messages.success_msg) { %>
-      <li><%= messages.success_msg %></li>
-      <% } %>
-    </ul>
-
+    
       <section>
         <div class="modal-dialog text-center " >
-          <div class="col-sm-10 main-section CentrarConteiner navbar-brand" >
+          <div class="col-sm-12 main-section CentrarConteiner navbar-brand" >
               <div class=" col-12 modal-content" ><br>
-                <h1>Inicio Sesión</h1><br>
+                <h1>Recuperar Contraseña</h1><br>
                   <div class="col-12 user-img">
                       <!--icono-->
                   </div>
-                  <form action="/InicioSesion" method="POST">
+                  <form action="/RecuperarContra" method="POST">
                     <div class="form-group">
                       <i class="bi bi-person-circle"></i>
                       <label for="exampleInputEmail1" class="form-label">Correo eléctrónico</label>
-                      <input class="form-control" type="email"  id="emaili" name="emaili" required>
+                      <input class="form-control" type="email"  id="emailc" name="emailc" required>
                       <div id="emailHelp" class="form-text"></div>
                     </div>
                     <div class="form-group">
                       <i class="bi bi-key-fill"></i>
-                      <label for="exampleInputPassword1" class="form-label">Contraseña</label>
-                      <input class="form-control" type="password" id="passwordi" name="passwordi" required>
-                    </div><br>
+                      <label for="exampleInputPassword1" class="form-label">Nueva Contraseña</label>
+                      <input class="form-control" type="password" id="password1c" name="password1c" required>
+                    </div>
                     <div class="form-group">
-                      <input id="myButton" class="btn btn-primary" type="submit" value="Ingresar Sesión"/>
+                      <i class="bi bi-key-fill"></i>
+                      <label for="exampleInputPassword1" class="form-label">Confirmar Contraseña</label>
+                      <input class="form-control" type="password" id="password2c" name="password2c" required>
+                    </div>
+                    <div class="form-group">
+                      <input id="myButton" class="btn btn-primary" type="submit" value="Guardar Cambios"/>
                     </div>
                     <div>
-                      <a href="/Emprendedor/Registro">Crear Cuenta</a>
+                      <a href="/InicioSesion">Iniciar Sesión</a>
                     </div>
-                    <div class="col-12 forgot">
-                      <a href="/RecuperarContra">Olvidé mi Contraseña</a>
-                    </div><br>
                 </form>
               </div>
           </div>
