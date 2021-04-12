@@ -25,9 +25,10 @@
     </ul>
 
       <section>
-        <div class="modal-dialog text-center">
-          <div class="col-sm-8 main-section">
-              <div class="modal-content">
+        <div class="modal-dialog text-center " >
+          <div class="col-sm-10 main-section CentrarConteiner navbar-brand" >
+              <div class=" col-12 modal-content" ><br>
+                <h1>Inicio Sesión</h1><br>
                   <div class="col-12 user-img">
                       <!--icono-->
                   </div>
@@ -42,20 +43,21 @@
                       <i class="bi bi-key-fill"></i>
                       <label for="exampleInputPassword1" class="form-label">Contraseña</label>
                       <input class="form-control" type="password" id="passwordi" name="passwordi" required>
-                    </div>
+                    </div><br>
                     <div class="form-group">
-                      <input id="myButton" class="btn btn-primary" type="submit" value="Ingresar"/>
+                      <input id="myButton" class="btn btn-primary" type="submit" value="Ingresar Sesión"/>
                     </div>
                     <div>
                       <a href="/Emprendedor/Registro">Crear Cuenta</a>
                     </div>
                     <div class="col-12 forgot">
                       <a href="#">Olvidé mi Contraseña</a>
-                    </div>
+                    </div><br>
                 </form>
               </div>
           </div>
-      </div>
+      </div><br>
       </section>
+      <%- include('partials/foot.html') %>
   </body>
 </html>

@@ -63,4 +63,12 @@ header img {
   background-color: #069169; 
   border-color: black;
 }
+.CentrarConteiner{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.bordeMIo{
+  border: #069169 5px outset;
+}
 
