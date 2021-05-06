@@ -4,7 +4,7 @@ const _pg=require('../services/postgress.service');
 const getUsers = async (req, res) => {
     try {
         //Conectar con la Base de Datos y Recolectar los Usuarios
-        let sql = `SELECT * FROM emprendedores`;
+        let sql = `SELECT * FROM emprendedor`;
 
 
         //Envia Informacion a la Base de datos y esperar Respuesta
@@ -24,7 +24,7 @@ const saveUsers = async (req, res) => {
     try {
         //Guardar la Informacion y Conectar con la Base de Datos
         let user = req.body;
-        let sql = `INSERT INTO emprendedores
+        let sql = `INSERT INTO emprendedor
         (cedula, nonbre, apellido, correo, contra, celular, telefono)
         VALUES('${user.cedula}', '${user.nonbre}', '${user.apellido}', '${user.correo}', '${user.contra}',  '${user.celular}', '${user.telefono}');`
       
@@ -52,7 +52,7 @@ const deleteUsers = async (req, res) => {
     try {
         //Conectar con la Base de Datos y Mediante la ID eliminar el Usuario
         let cedula = req.params.cedula;
-        let sql = `DELETE FROM emprendedores
+        let sql = `DELETE FROM emprendedor
         WHERE cedula='${cedula}'`;
 
         //Envia Informacion a la Base de datos y esperar Respuesta
@@ -81,7 +81,7 @@ const updateUsers = async (req, res) => {
         //Conectar con la Base de Datos y Recoger la Informacion para Actualizar
         let cedula = req.params.cedula;
         let user = req.body;
-        let sql = `UPDATE emprendedores
+        let sql = `UPDATE emprendedor
         SET correo='${user.correo}', contra='${user.contra}', celular='${user.celular}', telefono='${user.telefono}'
         WHERE cedula='${cedula}'`;
 

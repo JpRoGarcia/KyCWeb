@@ -98,7 +98,7 @@ router.post("/Emprendedor/Registro", async (req, res) => {
     if(errors.length > 0){
       res.render('registro.html', {errors})
     } else {
-      let sql = `INSERT INTO emprendedores
+      let sql = `INSERT INTO emprendedor
       (cedula, nombre, apellido, correo, contra, celular, telefono)
       VALUES('${id}', '${name}', '${lastname}', '${email}', '${password1}', 
        '${movil}', '${phone}');`
@@ -129,7 +129,7 @@ router.post("/InicioSesion", async (req, res) => {
   } else {
     //let sql = `SELECT contra FROM emprendedores WHERE="${emaili}"`
 
-    let sql = `SELECT * FROM emprendedores
+    let sql = `SELECT * FROM emprendedor
     WHERE correo='${emaili}' and contra='${passwordi}';`
     let response_db = await _pg.execute(sql);
     let rows = response_db.rows;
@@ -164,13 +164,13 @@ router.post("/RecuperarContra", async (req, res) => {
   if(errors.length > 0){
     res.render('RecuperarContra.html', {errors})
   } else {
-      let sqlCorreo = `SELECT * FROM emprendedores
+      let sqlCorreo = `SELECT * FROM emprendedor
       WHERE correo='${emailc}';`
       let response_db = await _pg.execute(sqlCorreo);
       let rows = response_db.rows;
       let validar = rows.length;
       if(validar == 1){
-        let sql = `UPDATE emprendedores
+        let sql = `UPDATE emprendedor
         SET contra='${password1c}'
         WHERE correo='${emailc}'`;
 
