@@ -5,12 +5,18 @@ const flash = require('express-flash')
 const router = express.Router();
 const _pg =require('../services/postgress.service');
 const passport = require("passport")
-
+const empresita = require('../controllers/empresa.controller')
+const administrador = require('../controllers/admin.controller')
+const anexito = require('../controllers/anexo.controller')
+const correcionanexo = require("../controllers/correcionanexo.controller")
+const inquietud = require("../controllers/inquietud.controller")
 router.use(flash());
 router.use(express.json());  
 router.use(express.urlencoded()); 
 router.use(passport.initialize())
 router.use(passport.session())
+
+
 
 router.use(session({
   secret: 'secret',
@@ -199,5 +205,27 @@ router.post("/RecuperarContra", async (req, res) => {
       }
   }
 })
+// verificar empresa 
+router.get("/empresa", empresita.getempresa)
+router.delete("/empresa/:id",empresita.deleteempresa)
+router.post("/empresa/",empresita.saveempresa)
+router.put("/empresa/:id",empresita.updateempresa)
 
+// verificar administrador 
+router.get("/admi", administrador.getadmin )
+router.post("/adminito/", administrador.saveadmin)
+router.put("/adminito/:cedula", administrador.updateadmin)
+
+// verificar anexo
+router.get("/anexo", anexito.getanexo)
+router.put("/anexito/:id", anexito.updateanexo)
+
+// verificar correcionanexo
+router.get("/correcionanexo", correcionanexo.getcorrecionanexo)
+router.put("/correcionanexo/:id", correcionanexo.updatecorrecionanexo)
+
+//verificar inquietud
+router.get("/vericarinquietud",inquietud.getinquietud )
+router.post("/perropendejo", inquietud.saveinquietud )
+router.put("/eresunpendejo/:id", inquietud.updateinquietud)
 module.exports = router; 
