@@ -63,6 +63,20 @@ router.get('/InicioSesion', (req, res) => {
   res.render('iniciosesion.html', {title: "Inicio Sesion"});
 });
 
+
+
+
+router.get('/pe', (req, res) => {
+  res.render('asesor.html', {title: "asesor"});
+});
+router.get('/listasesores', (req, res) => {
+  res.render('listasesores.html', {title: "listasesores"});
+});
+
+
+
+
+
 router.get('/Emprendedor/Registro', (req, res) => {
   res.render('registro.html', {title: "Registro"});
 });
