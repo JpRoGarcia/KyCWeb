@@ -1,22 +1,19 @@
 const express = require('express');
+const router = express.Router();
+const prueba = require('../controllers/asesor.controller')
+
 const session = require('express-session')
 const flash = require('express-flash')
 
-const router = express.Router();
+
 const _pg =require('../services/postgress.service');
 const passport = require("passport")
-const empresita = require('../controllers/empresa.controller')
-const administrador = require('../controllers/admin.controller')
-const anexito = require('../controllers/anexo.controller')
-const correcionanexo = require("../controllers/correcionanexo.controller")
-const inquietud = require("../controllers/inquietud.controller")
+
 router.use(flash());
 router.use(express.json());  
 router.use(express.urlencoded()); 
 router.use(passport.initialize())
 router.use(passport.session())
-
-
 
 router.use(session({
   secret: 'secret',
@@ -26,13 +23,11 @@ router.use(session({
   saveUninitialized: false
 }))
 
-
-
 router.get('/', (req, res) => {
   res.render('index.html', {title: "Inicio"});
 });
 
-router.get('/I', (req, res) => {
+router.get('/i', (req, res) => {
   res.render('index2.html', {title: "Inicio"});
 });
 
@@ -69,23 +64,25 @@ router.get('/InicioSesion', (req, res) => {
   res.render('iniciosesion.html', {title: "Inicio Sesion"});
 });
 
-
-
-
 router.get('/pe', (req, res) => {
   res.render('asesor.html', {title: "asesor"});
 });
-router.get('/listasesores', (req, res) => {
-  res.render('listasesores.html', {title: "listasesores"});
+
+router.get('/listasesores', async (req, res) =>{
+  let sql = `SELECT * FROM asesor`;
+  let response_db = await _pg.execute(sql);
+  let results = response_db.rows;
+  res.render('listasesores.html', {results: results});
 });
-
-
-
-
 
 router.get('/Emprendedor/Registro', (req, res) => {
   res.render('registro.html', {title: "Registro"});
 });
+
+router.get('/Emprendedor/Registro', (req, res) => {
+  res.render('registro.html', {title: "Registro"});
+});
+
 
 router.post("/Emprendedor/Registro", async (req, res) => {
   let { id, name, lastname, email, password1, password2, movil, phone } = req.body;
@@ -205,27 +202,5 @@ router.post("/RecuperarContra", async (req, res) => {
       }
   }
 })
-// verificar empresa 
-router.get("/empresa", empresita.getempresa)
-router.delete("/empresa/:id",empresita.deleteempresa)
-router.post("/empresa/",empresita.saveempresa)
-router.put("/empresa/:id",empresita.updateempresa)
 
-// verificar administrador 
-router.get("/admi", administrador.getadmin )
-router.post("/adminito/", administrador.saveadmin)
-router.put("/adminito/:cedula", administrador.updateadmin)
-
-// verificar anexo
-router.get("/anexo", anexito.getanexo)
-router.put("/anexito/:id", anexito.updateanexo)
-
-// verificar correcionanexo
-router.get("/correcionanexo", correcionanexo.getcorrecionanexo)
-router.put("/correcionanexo/:id", correcionanexo.updatecorrecionanexo)
-
-//verificar inquietud
-router.get("/vericarinquietud",inquietud.getinquietud )
-router.post("/perropendejo", inquietud.saveinquietud )
-router.put("/eresunpendejo/:id", inquietud.updateinquietud)
 module.exports = router; 
