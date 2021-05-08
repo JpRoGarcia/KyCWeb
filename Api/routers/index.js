@@ -92,6 +92,16 @@ router.get('/Admin/ListaAsesor', async (req, res) =>{
   res.render('AdminListaAsesor.html', {results: results});
 });
 
+router.get('/Admin/ELiminarAsesor/:cedula', async (req, res) => {
+
+  let cedula = req.params.cedula;
+  let sql = `DELETE FROM asesor WHERE cedula ='${cedula}';`
+  let response_db = await _pg.execute(sql);
+  let row_count = response_db.rowCount;
+  row_count == 1 ? true : false,
+    res.redirect('/Admin/ListaAsesor');
+});
+
 router.post("/Registro", async (req, res) => {
   let { id, name, lastname, email, password1, password2, movil, phone } = req.body;
 

@@ -43,7 +43,7 @@
                         <td><%= user.correo %></td>
                         <td>
                         <a href="/edit/<%= user.id %>" class="btn btn-outline-info"><i class="far fa-edit"></i></a>
-                        <a href="#" onclick="Confirmar(<%= user.id %>)" class="btn btn-outline-danger"><i class="fas fa-trash-alt"></i></a> 
+                        <a href="/Admin/ELiminarAsesor/<%= user.cedula %>", class="btn btn-outline-danger"><i class="fas fa-trash-alt"></i></a> 
                     </td>
                     </tr>                                   
                 <% }) %>
