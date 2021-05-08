@@ -104,3 +104,13 @@ ul.dropdown-menu:hover {
 .icon{
   font-size: 2em;
 }
+
+.contenedor_borde{
+  padding-bottom: 50px; 
+  padding-top: 50px; 
+}
+
+.con_borde{
+  border-radius: 10px; 
+  border: 1px solid #cac9c9;
+}

@@ -1,17 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= title %></title>
+    <title>
+        <%= title %>
+    </title>
     <%- include('partials/head.html') %>
 
 </head>
+
 <body>
     <%- include('partials/menuGood.html') %>
-    <div class="container", style="text-align-last: center">
-        <p><h1>Contactanos</h1><p>
-    </div>
+        <div class="container letra" , style="text-align-last: center">
+            <p>
+            <h1>Contáctanos</h1><br>
+            Si tiene alguna duda con respecto al proceso de formalización y requiere asesoria, <br>
+            aquí puede enviarnos su inquietud y será atendida lo más pronto posible.
+            <p>
+        </div>
+
+        <section class="contenedor_borde letra">
+            <div class="container con_borde col-md-6">
+                <form action="#" method="POST">
+                    <div class="col-md-6 modal-dialog">
+                        <div class="mb-3">
+                            <label for="emprendedor" class="form-label">Cédula del solicitante</label>
+                            <input type="text" class="form-control" id="emprendedor" placeholder="1234567890" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Correo</label>
+                            <input type="email" class="form-control" id="email" placeholder="correo@ejemplo.com" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="asunto" class="form-label">Asunto</label>
+                            <input type="text" class="form-control" id="asunto" placeholder="Asunto" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="mensaje" class="form-label">Mensaje</label>
+                            <textarea class="form-control" id="mensaje" rows="5"></textarea>
+                        </div>
+                        <div class="mb-3"> 
+                            <br>             
+                              <input id="myButton" class="btn btn-primary" type="submit" value="Enviar"/>
+                          </div>
+                    </div>
+                </form>     
+
+            </div>   
+        </section>
+        <%- include('partials/foot.html') %>
 </body>
 </html>
