@@ -65,11 +65,11 @@ router.get('/Usuario/Contacto', (req, res) => {
   res.render('UsuarioContacto.html', {title: "Contacto"});
 });
 
-router.get('/listasesores', async (req, res) =>{
+router.get('/Admin/ListaAsesor', async (req, res) =>{
   let sql = `SELECT * FROM asesor`;
   let response_db = await _pg.execute(sql);
   let results = response_db.rows;
-  res.render('listasesores.html', {results: results});
+  res.render('AdminListaAsesor.html', {results: results});
 });
 
 router.get('/inicioAsesor', (req, res) => {
