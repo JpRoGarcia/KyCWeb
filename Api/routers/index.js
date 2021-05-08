@@ -67,7 +67,7 @@ router.get('/Usuario/Contacto', (req, res) => {
 
 // ------- Administrador --------
 
-router.get('/inicioAdmin', (req, res) => {
+router.get('/Admin', (req, res) => {
   res.render('AdminSesion.html', {title: "Inicio admin  "});
 });
 
@@ -77,13 +77,11 @@ router.get('/Admin/AgregarAsesor', (req, res) => {
 
 // -------- Asesor --------
 
-router.get('/inicioAsesor', (req, res) => {
+router.get('/Asesor', (req, res) => {
   res.render('AsesorSesion.html', {title: "Inicio asesor"});
 });
 
-
-
-
+// -------- SQL --------  
 
 router.get('/Admin/ListaAsesor', async (req, res) =>{
   let sql = `SELECT * FROM asesor`;
@@ -131,6 +129,38 @@ router.post("/Admin/AgregarAsesor", async (req, res) => {
       req.flash("success_msg", "Asesor Agregado con Exito");
       res.redirect("/Admin/ListaAsesor");
     }
+});
+
+router.post("/Admin", async (req, res) => {
+  let {  emaili, passwordi } = req.body;
+  let errors = [];
+
+  console.log({
+    emaili,
+    passwordi,
+  });
+
+  if( !emaili || !passwordi ){
+    errors.push({ message: "Espacio Vacío" });
+  }
+
+  if(errors.length > 0){
+    res.render('AdminSesion.html', {errors})
+  } else {
+    //let sql = `SELECT contra FROM emprendedores WHERE="${emaili}"`
+
+    let sql = `SELECT * FROM admin
+    WHERE correo='${emaili}' and contra='${passwordi}';`
+    let response_db = await _pg.execute(sql);
+    let rows = response_db.rows;
+    let validar = rows.length;
+    if(validar == 1){
+      res.redirect("/Admin/ListaAsesor");
+    }else{
+      errors.push({ message: "La Contraseña o Correo son Incorrectos" });
+      res.render('AdminSesion.html', {errors})
+    }
+  }
 });
 
 router.post("/Registro", async (req, res) => {
@@ -201,7 +231,7 @@ router.post("/InicioSesion", async (req, res) => {
     let rows = response_db.rows;
     let validar = rows.length;
     if(validar == 1){
-      res.redirect("/I");
+      res.redirect("/Usuario");
     }else{
       errors.push({ message: "La Contraseña o Correo son Incorrectos" });
       res.render('InicioSesion.html', {errors})
@@ -251,7 +281,5 @@ router.post("/Usuario/RecuperarContra", async (req, res) => {
       }
   }
 })
-
-
 
 module.exports = router; 
