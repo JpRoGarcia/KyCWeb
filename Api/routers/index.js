@@ -1,19 +1,13 @@
 const express = require('express');
 const router = express.Router();
-const prueba = require('../controllers/asesor.controller')
+const _pg =require('../services/postgress.service');
 
 const session = require('express-session')
 const flash = require('express-flash')
 
-
-const _pg =require('../services/postgress.service');
-const passport = require("passport")
-
 router.use(flash());
 router.use(express.json());  
 router.use(express.urlencoded()); 
-router.use(passport.initialize())
-router.use(passport.session())
 
 router.use(session({
   secret: 'secret',
@@ -68,21 +62,16 @@ router.get('/pe', (req, res) => {
   res.render('asesor.html', {title: "asesor"});
 });
 
-router.get('/listasesores', async (req, res) =>{
+router.get('/Emprendedor/Registro', (req, res) => {
+  res.render('registro.html', {title: "Registro"});
+});
+
+router.post('/listasesores', async (req, res) =>{
   let sql = `SELECT * FROM asesor`;
   let response_db = await _pg.execute(sql);
   let results = response_db.rows;
   res.render('listasesores.html', {results: results});
 });
-
-router.get('/Emprendedor/Registro', (req, res) => {
-  res.render('registro.html', {title: "Registro"});
-});
-
-router.get('/Emprendedor/Registro', (req, res) => {
-  res.render('registro.html', {title: "Registro"});
-});
-
 
 router.post("/Emprendedor/Registro", async (req, res) => {
   let { id, name, lastname, email, password1, password2, movil, phone } = req.body;

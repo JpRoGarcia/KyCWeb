@@ -22,34 +22,35 @@
     <%- include('partials/errores.html') %>
     <%- include('partials/bueno.html') %>     
 
-    <div  eblclass="container">    
-    <a href="/asesor" class="letra btn btn-outline-primary mt-4"> create </a>    
-    <table class="table table-bordered table-striped text-center mt-4">
-        <thead>
-            <tr class="letra bg-primary text-white ">
-            <th scope="col">Cedula</th>
-            <th scope="col">Nombre</th>
-            <th scope="col">Apellido</th>     
-            <th scope="col">Correo</th>       
-            <th scope="col">Acciones</th>            
-            </tr>
-        </thead>
-        <tbody>
-            <% results.forEach((user)=>{ %>
-              <tr>  
-                  <td><%= user.cedula %></td>  
-                  <td><%= user.nombre %></td>
-                  <td><%= user.apellido %></td>
-                  <td><%= user.correo %></td>
-                  <td>
-                    <a href="/edit/<%= user.id %>" class="btn btn-outline-info">editar</i></a>
-                    <a href="/delete/<%= user.id %>" class="btn btn-outline-danger">borrar</i></a>                   
-                  </td>
-              </tr>                                   
-           <% }) %>
-          </tbody>
-    </table>
+    <div class="container">    
+        <a href="/asesor" class="letra btn btn-outline-primary mt-4"> create </a>    
+        <table class="table table-bordered table-striped text-center mt-4">
+            <thead>
+                <tr class="letra bg-primary text-white ">
+                <th scope="col">Cedula</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Apellido</th>     
+                <th scope="col">Correo</th>       
+                <th scope="col">Acciones</th>            
+                </tr>
+            </thead>
+            <tbody>
+                <% results.forEach((user)=>{ %>
+                    <tr>  
+                        <td><%= user.cedula %></td>  
+                        <td><%= user.nombre %></td>
+                        <td><%= user.apellido %></td>
+                        <td><%= user.correo %></td>
+                        <td>
+                        <a href="/edit/<%= user.id %>" class="btn btn-outline-info">editar</i></a>
+                        <a href="/delete/<%= user.id %>" class="btn btn-outline-danger">borrar</i></a>                   
+                        </td>
+                    </tr>                                   
+                <% }) %>
+                </tbody>
+        </table>
     </div>
+    
     <br>
     <%- include('partials/foot.html') %>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
