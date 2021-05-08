@@ -43,7 +43,7 @@
                         <td><%= user.correo %></td>
                         <td>
                         <a href="/edit/<%= user.cedula %>" class="btn btn-outline-info"><i class="far fa-edit"></i></a>
-                        <a onclick="Confirmar(<%= user.cedula %>)" class="btn btn-outline-danger"><i class="fas fa-trash-alt"></i></a> 
+                        <a onclick="Confirmar(<%-user.cedula%>)" class="btn btn-outline-danger"><i class="fas fa-trash-alt"></i></a> 
                     </td>
                     </tr>                                   
                 <% }) %>
@@ -66,10 +66,9 @@
                 cancelButtoncolor:'#d33',
                 confirmButtonText: `confirmar`,
                 }).then((result) => {
-                   if (result.isConfirmed) {
-                    window.location = '/Admin/ELiminarAsesor/'+cedula;
-                    Swal.fire('Changes are not saved', '', 'info')
-                } 
+                    if (result.isConfirmed) {
+                        window.location = '/Admin/ELiminarAsesor/'+cedula;
+                    } 
                 })
         }
     </script>    
