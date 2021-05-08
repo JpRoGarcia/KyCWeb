@@ -114,3 +114,18 @@ ul.dropdown-menu:hover {
   border-radius: 10px; 
   border: 1px solid #cac9c9;
 }
+
+#LOGO{
+  height: 50px;
+  width: 60px;
+}
+
+#NOMBRE{
+  height: 50px;
+  width: 240px;
+}
+
+.myFigure{
+  text-align: center;
+  padding: 25px;
+}

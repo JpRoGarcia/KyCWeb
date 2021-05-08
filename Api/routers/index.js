@@ -72,6 +72,14 @@ router.get('/listasesores', async (req, res) =>{
   res.render('listasesores.html', {results: results});
 });
 
+router.get('/inicioAsesor', (req, res) => {
+  res.render('inicioAsesor.html', {title: "Inicio asesor"});
+});
+
+router.get('/inicioAdmin', (req, res) => {
+  res.render('inicioAdmin.html', {title: "Inicio admin  "});
+});
+
 router.post("/Registro", async (req, res) => {
   let { id, name, lastname, email, password1, password2, movil, phone } = req.body;
 

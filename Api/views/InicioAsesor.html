@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Inicio Sesion</title>
+    <%- include('partials/head.html') %>
+
+</head>
+<body>
+
+      <section>
+        <figure class="myFigure">
+            <img id="LOGO" src="img/LOGO_FG.png" alt="LOGO">
+            <img id="NOMBRE" src="img/FG.png" alt="LOGO">
+        </figure>
+        <div class="modal-dialog text-center " >
+          <div class="col-sm-10 main-section CentrarConteiner navbar-brand" >
+              <div class=" col-12 modal-content" ><br>
+                <h1>Inicio Sesión</h1><br>
+                  <div class="col-12 user-img">
+                      <!--icono-->
+                  </div>
+                  <form action="#" method="POST">
+                    <div class="form-group">
+                      <i class="bi bi-person-circle"></i>
+                      <label for="exampleInputEmail1" class="form-label">Correo eléctrónico</label>
+                      <input class="form-control" type="email"  id="emaili" name="emaili" required>
+                      <div id="emailHelp" class="form-text"></div>
+                    </div>
+                    <div class="form-group">
+                      <i class="bi bi-key-fill"></i>
+                      <label for="exampleInputPassword1" class="form-label">Contraseña</label>
+                      <input class="form-control" type="password" id="passwordi" name="passwordi" required>
+                    </div><br>
+                    <div class="form-group">
+                      <input id="myButton" class="btn btn-primary" type="submit" value="Ingresar Sesión"/>
+                    </div>
+                    <div class="col-12 forgot">
+                      <a href="/RecuperarContra">Olvidé mi Contraseña</a>
+                    </div><br>
+                </form>
+              </div>
+          </div>
+      </div><br>
+      </section>
+      <%- include('partials/foot.html') %>
+  </body>
+</html>
