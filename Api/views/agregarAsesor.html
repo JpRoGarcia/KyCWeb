@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Página principal</title>
+    <%- include('partials/head.html') %>
+
+</head>
+<body>
+    <%- include('partials/menuAdmin.html') %>
+
+    <section style="padding-bottom: 50px; padding-top: 50px; border-color: black;">
+        <div class="container letra" style="border-radius: 10px; border: 1px solid #cac9c9;"><br>
+          <p>
+            <h1>Registro De Asesor</h1>
+          </p> 
+        <div class="container letra" style="padding-bottom: 100px;text-align-last: left">
+          
+            <form class="row g-3 needs-validation" action="/agregarAsesor" method="POST">
+              <div class="col-md-4">
+                <label for="validationCustom02" class="form-label">Cédula</label>
+                <input class="form-control" type="text" id="id" name="id" required>
+              </div>
+                <div class="col-md-4">
+                  <label for="validationCustom01" class="form-label">Nombre</label>
+                  <input class="form-control" type="text" id="name" name="name" required>
+                </div>
+                <div class="col-md-4">
+                  <label for="validationCustom02" class="form-label">Apellido</label>
+                  <input class="form-control" type="text" id="lastname" name="lastname" required>
+                </div>
+                <div class="col-md-4">
+                  <label for="exampleInputEmail1" class="form-label">Correo Electrónico</label>
+                  <input class="form-control" type="email"  id="email" name="email" required>
+                </div>
+                <div class="col-md-4">
+                  <label for="exampleInputPassword1" class="form-label">Contraseña</label>
+                  <input class="form-control" type="password" id="password1" name="password1" required>
+                </div>
+                <div class="col-md-4">
+                  <label for="exampleInputPassword1" class="form-label">Confirmar Contraseña</label>
+                  <input class="form-control" type="password" id="password2" name="password2" required>
+                </div>
+                
+                <div class="col-12"> 
+                  <br>             
+                    <input id="myButton" class="btn btn-primary" type="submit" value="Registrar"/>
+                </div>
+              </form>
+        </div>
+      </div>
+      </section>
+    <%- include('partials/foot.html') %>
+</body>
+</html>
