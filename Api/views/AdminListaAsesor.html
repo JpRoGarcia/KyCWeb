@@ -42,8 +42,8 @@
                         <td><%= user.apellido %></td>
                         <td><%= user.correo %></td>
                         <td>
-                        <a href="/edit/<%= user.id %>" class="btn btn-outline-info"><i class="far fa-edit"></i></a>
-                        <a href="/Admin/ELiminarAsesor/<%= user.cedula %>", class="btn btn-outline-danger"><i class="fas fa-trash-alt"></i></a> 
+                        <a href="/edit/<%= user.cedula %>" class="btn btn-outline-info"><i class="far fa-edit"></i></a>
+                        <a onclick="Confirmar(<%= user.cedula %>)" class="btn btn-outline-danger"><i class="fas fa-trash-alt"></i></a> 
                     </td>
                     </tr>                                   
                 <% }) %>
@@ -57,9 +57,9 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.16.7/dist/sweetalert2.all.min.js"></script>
 
     <script>
-        function Confirmar(id){
+        function Confirmar(cedula){
             Swal.fire({
-                title: 'confirmar eliminar el registro?',
+                title: 'confirmar eliminar el asesor?',
                 icon:'warning',
                 showCancelButton: true,
                 confirmButtoncolor:'#3085d6',
@@ -67,10 +67,9 @@
                 confirmButtonText: `confirmar`,
                 }).then((result) => {
                    if (result.isConfirmed) {
-                    Swal.fire('Saved!', '', 'success')
-                } else if (result.isDenied) {
+                    window.location = '/Admin/ELiminarAsesor/'+cedula;
                     Swal.fire('Changes are not saved', '', 'info')
-                }
+                } 
                 })
         }
     </script>    
