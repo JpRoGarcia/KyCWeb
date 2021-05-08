@@ -17,53 +17,59 @@ router.use(session({
   saveUninitialized: false
 }))
 
+
+// -------- INICIO --------
 router.get('/', (req, res) => {
-  res.render('index.html', {title: "Inicio"});
-});
-
-router.get('/i', (req, res) => {
-  res.render('index2.html', {title: "Inicio"});
-});
-
-router.get('/RecuperarContra', (req, res) => {
-  res.render('RecuperarContra.html', {title: "Recuperar Contraseña"});
-});
-
-
-router.get('/Formalizar', (req, res) => {
-  res.render('formalizar.html', {title: "Formalizar"});
+  res.render('InicioIndex.html', {title: "Inicio"});
 });
 
 router.get('/Videos', (req, res) => {
-  res.render('videos.html', {title: "Videos"});
-});
-
-router.get('/VideosI', (req, res) => {
-  res.render('videos2.html', {title: "Videos"});
+  res.render('InicioVideos.html', {title: "Videos"});
 });
 
 router.get('/Guia', (req, res) => {
-  res.render('guia.html', {title: "Guia"});
-});
-
-router.get('/GuiaI', (req, res) => {
-  res.render('guia2.html', {title: "Guia"});
-});
-
-router.get('/Contacto', (req, res) => {
-  res.render('contact.html', {title: "Contacto"});
+  res.render('InicioGuia.html', {title: "Guia"});
 });
 
 router.get('/InicioSesion', (req, res) => {
-  res.render('iniciosesion.html', {title: "Inicio Sesion"});
+  res.render('InicioSesion.html', {title: "Inicio Sesion"});
 });
+
+router.get('/Registro', (req, res) => {
+  res.render('InicioRegistro.html', {title: "Registro"});
+});
+
+// -------- Usuario --------
+
+router.get('/Usuario', (req, res) => {
+  res.render('UsuarioIndex.html', {title: "Inicio"});
+});
+
+router.get('/Usuario/Formalizar', (req, res) => {
+  res.render('UsuarioFormalizar.html', {title: "Formalizar"});
+});
+
+router.get('/Usuario/RecuperarContra', (req, res) => {
+  res.render('UsuarioRecuperarContra.html', {title: "Recuperar Contraseña"});
+});
+
+router.get('/Usuario/Videos', (req, res) => {
+  res.render('UsuarioVideo.html', {title: "Videos"});
+});
+
+router.get('/Usuario/Guia', (req, res) => {
+  res.render('UsuarioGuia.html', {title: "Guia"});
+});
+
+router.get('/Usuario/Contacto', (req, res) => {
+  res.render('contact.html', {title: "Contacto"});
+});
+
+
+
 
 router.get('/pe', (req, res) => {
   res.render('asesor.html', {title: "asesor"});
-});
-
-router.get('/Emprendedor/Registro', (req, res) => {
-  res.render('registro.html', {title: "Registro"});
 });
 
 router.get('/listasesores', async (req, res) =>{
@@ -73,7 +79,7 @@ router.get('/listasesores', async (req, res) =>{
   res.render('listasesores.html', {results: results});
 });
 
-router.post("/Emprendedor/Registro", async (req, res) => {
+router.post("/Registro", async (req, res) => {
   let { id, name, lastname, email, password1, password2, movil, phone } = req.body;
 
   let errors = [];
@@ -102,7 +108,7 @@ router.post("/Emprendedor/Registro", async (req, res) => {
     }
 
     if(errors.length > 0){
-      res.render('registro.html', {errors})
+      res.render('InicioRegistro.html', {errors})
     } else {
       let sql = `INSERT INTO emprendedor
       (cedula, nombre, apellido, correo, contra, celular, telefono)
@@ -149,7 +155,7 @@ router.post("/InicioSesion", async (req, res) => {
   }
 });
 
-router.post("/RecuperarContra", async (req, res) => {
+router.post("/Usuario/RecuperarContra", async (req, res) => {
   let {  emailc, password1c, password2c } = req.body;
   let errors = [];
 
@@ -168,7 +174,7 @@ router.post("/RecuperarContra", async (req, res) => {
   }
 
   if(errors.length > 0){
-    res.render('RecuperarContra.html', {errors})
+    res.render('UsuarioRecuperarContra.html', {errors})
   } else {
       let sqlCorreo = `SELECT * FROM emprendedor
       WHERE correo='${emailc}';`
