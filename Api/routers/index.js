@@ -102,6 +102,37 @@ router.get('/Admin/ELiminarAsesor/:cedula', async (req, res) => {
     res.redirect('/Admin/ListaAsesor');
 });
 
+router.post("/Admin/AgregarAsesor", async (req, res) => {
+  let {id, name, lastname, email} = req.body;
+
+  let errors = [];
+  
+  console.log({
+    id,
+    name,
+    lastname,
+    email
+  });
+
+    if(!name || !lastname || !email){
+      errors.push({ message: "Espacio Vacio" });
+    }
+
+    if(errors.length > 0){
+      res.render('InicioRegistro.html', {errors})
+    } else {
+      let sql = `INSERT INTO asesor
+      (cedula, nombre, apellido, correo, contra)
+      VALUES('${id}', '${name}', '${lastname}', '${email}', '${id}');`
+    
+      await _pg.execute(sql);
+
+      //Envia Informacion a la Base de datos y esperar Respuesta
+      req.flash("success_msg", "Asesor Agregado con Exito");
+      res.redirect("/Admin/ListaAsesor");
+    }
+});
+
 router.post("/Registro", async (req, res) => {
   let { id, name, lastname, email, password1, password2, movil, phone } = req.body;
 
