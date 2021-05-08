@@ -8,8 +8,8 @@
 	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/dataTables.bootstrap5.min.css">
     <style>
      table.dataTable thead {
-           background: color #069169;;
-           color:aliceblue;
+           background-color: #069169;
+          
        }  
     </style>
     <title>lista asesores</title>
@@ -23,10 +23,10 @@
     <%- include('partials/bueno.html') %>     
 
     <div class="container">    
-        <a href="/asesor" class="letra btn btn-outline-primary mt-4"> create </a>    
-        <table class="table table-bordered table-striped text-center mt-4">
+        <a href="/Admin/AgregarAsesor" class="btn btn-outline-info"><i class="fas fa-user-plus"></i></a>    
+        <table class=" table table-bordered  table-striped  text-center mt-4">
             <thead>
-                <tr class="letra bg-primary text-white ">
+                <tr class="letra  text-white " style="background-color: #069169"> 
                 <th scope="col">Cedula</th>
                 <th scope="col">Nombre</th>
                 <th scope="col">Apellido</th>     
@@ -42,8 +42,8 @@
                         <td><%= user.apellido %></td>
                         <td><%= user.correo %></td>
                         <td>
-                        <a href="/edit/<%= user.id %>" class="btn btn-outline-info">editar</i></a>
-                        <a href="#" onclick="Confirmar(<%= user.id %>)" class="btn btn-outline-danger">borrar</i></a> 
+                        <a href="/edit/<%= user.id %>" class="btn btn-outline-info"><i class="far fa-edit"></i></a>
+                        <a href="#" onclick="Confirmar(<%= user.id %>)" class="btn btn-outline-danger"><i class="fas fa-trash-alt"></i></a> 
                     </td>
                     </tr>                                   
                 <% }) %>
