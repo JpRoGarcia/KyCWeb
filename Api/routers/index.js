@@ -65,19 +65,23 @@ router.get('/Usuario/Contacto', (req, res) => {
   res.render('UsuarioContacto.html', {title: "Contacto"});
 });
 
-router.get('/Admin/ListaAsesor', async (req, res) =>{
-  let sql = `SELECT * FROM asesor`;
-  let response_db = await _pg.execute(sql);
-  let results = response_db.rows;
-  res.render('AdminListaAsesor.html', {results: results});
+// ------- Administrador --------
+
+router.get('/inicioAdmin', (req, res) => {
+  res.render('inicioAdmin.html', {title: "Inicio admin  "});
 });
+
+// -------- Asesor --------
 
 router.get('/inicioAsesor', (req, res) => {
   res.render('inicioAsesor.html', {title: "Inicio asesor"});
 });
 
-router.get('/inicioAdmin', (req, res) => {
-  res.render('inicioAdmin.html', {title: "Inicio admin  "});
+router.get('/Admin/ListaAsesor', async (req, res) =>{
+  let sql = `SELECT * FROM asesor`;
+  let response_db = await _pg.execute(sql);
+  let results = response_db.rows;
+  res.render('AdminListaAsesor.html', {results: results});
 });
 
 router.post("/Registro", async (req, res) => {
