@@ -71,11 +71,19 @@ router.get('/inicioAdmin', (req, res) => {
   res.render('AdminSesion.html', {title: "Inicio admin  "});
 });
 
+router.get('/Admin/AgregarAsesor', (req, res) => {
+  res.render('AdminAgregarAsesor.html', {title: "Agregar Asesor"});
+});
+
 // -------- Asesor --------
 
 router.get('/inicioAsesor', (req, res) => {
   res.render('AsesorSesion.html', {title: "Inicio asesor"});
 });
+
+
+
+
 
 router.get('/Admin/ListaAsesor', async (req, res) =>{
   let sql = `SELECT * FROM asesor`;
@@ -202,5 +210,7 @@ router.post("/Usuario/RecuperarContra", async (req, res) => {
       }
   }
 })
+
+
 
 module.exports = router; 
