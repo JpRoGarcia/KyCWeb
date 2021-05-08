@@ -62,14 +62,7 @@ router.get('/Usuario/Guia', (req, res) => {
 });
 
 router.get('/Usuario/Contacto', (req, res) => {
-  res.render('contact.html', {title: "Contacto"});
-});
-
-
-
-
-router.get('/pe', (req, res) => {
-  res.render('asesor.html', {title: "asesor"});
+  res.render('UsuarioContacto.html', {title: "Contacto"});
 });
 
 router.get('/listasesores', async (req, res) =>{
