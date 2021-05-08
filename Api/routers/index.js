@@ -66,7 +66,7 @@ router.get('/Emprendedor/Registro', (req, res) => {
   res.render('registro.html', {title: "Registro"});
 });
 
-router.post('/listasesores', async (req, res) =>{
+router.get('/listasesores', async (req, res) =>{
   let sql = `SELECT * FROM asesor`;
   let response_db = await _pg.execute(sql);
   let results = response_db.rows;
