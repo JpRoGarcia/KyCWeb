@@ -33,7 +33,10 @@
                     <div class="form-group">
                       <i class="bi bi-key-fill"></i>
                       <label for="exampleInputPassword1" class="form-label">Contraseña</label>
-                      <input class="form-control" type="password" id="passwordi" name="passwordi" required>
+                      <div class="input-group mb-3">
+                        <input class="form-control" type="password" id="passwordi" name="passwordi" required>
+                        <button id="show_password" class="btn btn-outline-secondary" type="button" onclick="mostrarContrasena()"><i class="bi bi-eye"></i></button>
+                      </div>
                     </div><br>
                     <div class="form-group">
                       <input id="myButton" class="btn btn-primary" type="submit" value="Ingresar Sesión"/>
@@ -47,5 +50,24 @@
       </div><br>
       </section>
       <%- include('partials/foot.html') %>
+      <script>
+        var boton = document.getElementById('show_password');
+        var input = document.getElementById('passwordi');
+
+        boton.addEventListener('click', mostrarContrasena());
+
+        function mostrarContrasena() {
+          if(input.type == 'password'){
+            input.type = 'text';
+            setTimeout("ocultar()", 2000);
+          }else{
+            input.type = 'password';
+          }
+        }
+
+        function ocultar() {
+          input.type = 'password';
+        }
+      </script>
   </body>
 </html>

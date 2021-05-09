@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+    <%- include('partials/head.html') %>
+</head>
+<body>
+    <%- include('partials/menuUsuario.html') %><br>
+    <section style="padding-bottom: 50px; padding-top: 50px;">
+        <div class="container col-md-6 letra" style="border-radius: 10px; border: 1px solid #cac9c9;"><br>
+            <div class="container letra" style="padding-bottom: 50px;">
+                <form class="row g-2 needs-validation" action="">
+                        <br><h1 class="display-4">EDITAR PERFIL</h1><br>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label for="email" class="form-label">Nuevo correo</label>
+                                <input type="email" class="form-control" id="email" placeholder="correo@ejemplo.com" required>
+                             </div><br>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label for="Password1" class="form-label">Contraseña</label>
+                                <input class="form-control" type="password" id="password1" name="password1" required>
+                              </div>
+                              <div class="col-md-6">
+                                <label for="Password2" class="form-label">Confirmar Contraseña</label>
+                                <input class="form-control" type="password" id="password2" name="password2" required>
+                              </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label for="movil" class="form-label">Celular</label>
+                                <input class="form-control" type="tel"  id="movil" name="movil" required>
+                              </div>
+                              <div class="col-md-6">
+                                <label for="phone" class="form-label">Teléfono</label>
+                                <input class="form-control" type="tel"  id="phone" name="phone" required>
+                              </div>
+                        </div>
+                        <div class="col-12">
+                            <button id="myButton" class="btn btn-primary" type="submit">Guardar y Enviar</button>
+                        </div><br><br>
+                </form>
+                </div>
+        </div>
+    </section>  
+
+    <%- include('partials/foot.html') %>
+</body>
+</html>

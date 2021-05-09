@@ -4,14 +4,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    
     <title>Inicio Sesion</title>
     <%- include('partials/head.html') %>
 
 </head>
 <body>
-    <%- include('partials/menuInicio.html') %>
-    <br>
+
     <%- include('partials/errores.html') %>
     <br>
     <%- include('partials/bueno.html') %>
@@ -33,8 +32,11 @@
                     </div>
                     <div class="form-group">
                       <i class="bi bi-key-fill"></i>
-                      <label for="exampleInputPassword1" class="form-label">Contraseña</label>
-                      <input class="form-control" type="password" id="passwordi" name="passwordi" required>
+                      <label for="Passwordi" class="form-label">Contraseña</label>
+                      <div class="input-group mb-3">
+                        <input class="form-control" type="password" id="passwordi" name="passwordi" required>
+                        <button id="show_password" class="btn btn-outline-secondary" type="button" onclick="mostrarContrasena()"><i class="bi bi-eye"></i></button>
+                      </div>
                     </div><br>
                     <div class="form-group">
                       <input id="myButton" class="btn btn-primary" type="submit" value="Ingresar Sesión"/>
@@ -51,5 +53,24 @@
       </div><br>
       </section>
       <%- include('partials/foot.html') %>
+      <script>
+        var boton = document.getElementById('show_password');
+        var input = document.getElementById('passwordi');
+
+        boton.addEventListener('click', mostrarContrasena());
+
+        function mostrarContrasena() {
+          if(input.type == 'password'){
+            input.type = 'text';
+            setTimeout("ocultar()", 2000);
+          }else{
+            input.type = 'password';
+          }
+        }
+
+        function ocultar() {
+          input.type = 'password';
+        }
+      </script>
   </body>
 </html>
