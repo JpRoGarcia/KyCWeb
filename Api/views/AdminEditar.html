@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AdminEditar</title>
+    <%- include('partials/head.html') %>
+</head>
+<body>
+    <%- include('partials/menuAdmin.html') %>
+    <br>
+    <%- include('partials/errores.html') %>
+    
+      <section style="padding-bottom: 50px; padding-top: 50px; border-color: black;">
+        <!--background: linear-gradient(180deg, rgba(162, 255, 215, 0.568) 29%, rgb(90, 158, 124) 76%);-->
+        <div class="container letra" style="border-radius: 10px; border: 1px solid #cac9c9;"><br>
+          <p>
+            <h1>Editar Admin</h1>
+          </p> 
+        <div class="container letra" style="padding-bottom: 100px;text-align-last: left">
+          
+            <form class="row g-3 needs-validation" action="/Emprendedor/Registro" method="POST">
+              <div class="col-md-4">
+                <label for="validationCustom02" class="form-label">Cédula</label>
+                <input class="form-control" type="text" id="id" name="id" required>
+              </div>
+                <div class="col-md-4">
+                  <label for="validationCustom01" class="form-label">Nombre</label>
+                  <input class="form-control" type="text" id="name" name="name" required>
+                </div>
+                <div class="col-md-4">
+                  <label for="validationCustom02" class="form-label">Apellido</label>
+                  <input class="form-control" type="text" id="lastname" name="lastname" required>
+                </div>
+
+                <div class="col-md-4">
+                  <label for="exampleInputPassword1" class="form-label">Contraseña</label>
+                  <input class="form-control" type="password" id="password1" name="password1" required>
+                </div>
+                <div class="col-md-4">
+                  <label for="exampleInputPassword1" class="form-label">Confirmar Contraseña</label>
+                  <input class="form-control" type="password" id="password2" name="password2" required>
+                </div>
+                 <div><input id="myButton" class="btn btn-primary" type="submit" value="Guardar"/></div>   
+                    
+              </form>
+        </div>
+      </div>
+
+      </section>
+    
+    <%- include('partials/foot.html') %>
+</body>
+</html>
