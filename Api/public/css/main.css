@@ -107,7 +107,7 @@ ul.dropdown-menu:hover {
 
 .contenedor_borde{
   padding-bottom: 50px; 
-  padding-top: 50px; 
+  padding-top: 20px; 
 }
 
 .con_borde{
@@ -128,4 +128,9 @@ ul.dropdown-menu:hover {
 .myFigure{
   text-align: center;
   padding: 25px;
+}
+
+#miModal{
+  width: 2000px;
+  height: auto;
 }

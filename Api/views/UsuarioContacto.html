@@ -22,33 +22,36 @@
         </div>
 
         <section class="contenedor_borde letra">
-            <div class="container con_borde col-md-6">
-                <form action="#" method="POST">
-                    <div class="col-md-6 modal-dialog">
-                        <div class="mb-3">
-                            <label for="emprendedor" class="form-label">Cédula del solicitante</label>
-                            <input type="text" class="form-control" id="emprendedor" placeholder="1234567890" required>
+            <div class="modal-dialog  modal-lg " id="miModal">
+                <div class="col-xl-12 main-section CentrarConteiner navbar-brand">
+                    <form action="#" method="POST">
+                        <div class="col-lg-12 modal-content">
+                            <div class="mb-3">
+                                <label for="emprendedor" class="form-label">Cédula del solicitante</label>
+                                <input type="text" class="form-control" id="emprendedor" placeholder="1234567890" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Correo</label>
+                                <input type="email" class="form-control" id="email" placeholder="correo@ejemplo.com" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="asunto" class="form-label">Asunto</label>
+                                <input type="text" class="form-control" id="asunto" placeholder="Asunto" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="mensaje" class="form-label">Mensaje</label>
+                                <textarea class="form-control" id="mensaje" rows="5"></textarea>
+                            </div>
+                            <div class="mb-3"> 
+                                <br>             
+                                  <input id="myButton" class="btn btn-primary" type="submit" value="Enviar"/>
+                              </div>
                         </div>
-                        <div class="mb-3">
-                            <label for="email" class="form-label">Correo</label>
-                            <input type="email" class="form-control" id="email" placeholder="correo@ejemplo.com" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="asunto" class="form-label">Asunto</label>
-                            <input type="text" class="form-control" id="asunto" placeholder="Asunto" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="mensaje" class="form-label">Mensaje</label>
-                            <textarea class="form-control" id="mensaje" rows="5"></textarea>
-                        </div>
-                        <div class="mb-3"> 
-                            <br>             
-                              <input id="myButton" class="btn btn-primary" type="submit" value="Enviar"/>
-                          </div>
-                    </div>
-                </form>     
+                    </form>     
+    
+                </div>   
 
-            </div>   
+            </div>
         </section>
         <%- include('partials/foot.html') %>
 </body>
