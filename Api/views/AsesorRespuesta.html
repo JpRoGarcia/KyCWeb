@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+    <%- include('partials/head.html') %>
+</head>
+<body>
+    <%- include('partials/menuAsesor.html') %><br>
+    <div class="container letra" , style="text-align-last: center">
+        <p>
+        <h1>Respuesta de solicitud</h1>
+        <p>
+    </div>
+    <section class="contenedor_borde letra">
+        <div class="modal-dialog  modal-lg " id="miModal">
+            <div class="col-xl-12 main-section CentrarConteiner navbar-brand">
+                <form action="#" method="POST">
+                    <div class="col-lg-12 modal-content">
+                        <div class="mb-3">
+                            <label for="asunto" class="form-label">Asunto</label>
+                            <input type="text" class="form-control" id="asunto" placeholder="Asunto" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="mensaje" class="form-label">Mensaje</label>
+                            <textarea class="form-control" id="mensaje" rows="10"></textarea>
+                        </div>
+                        <div class="mb-3"> 
+                            <br>             
+                              <input id="myButton" class="btn btn-primary" type="submit" value="Enviar"/>
+                          </div>
+                    </div>
+                </form>     
+            </div>   
+        </div>
+    </section>
+    <%- include('partials/foot.html') %>
+</body>
+</html>
