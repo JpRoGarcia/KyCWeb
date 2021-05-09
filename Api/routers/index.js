@@ -87,7 +87,6 @@ router.get('/Asesor', (req, res) => {
   res.render('AsesorSesion.html', {title: "Inicio asesor"});
 });
 
-
 // -------- SQL --------  
 
 router.get('/Admin/ListaAsesor', async (req, res) =>{
@@ -95,6 +94,26 @@ router.get('/Admin/ListaAsesor', async (req, res) =>{
   let response_db = await _pg.execute(sql);
   let results = response_db.rows;
   res.render('AdminListaAsesor.html', {results: results});
+});
+
+router.get('/Asesor/Inquietud', async (req, res) =>{
+  let sql = `select inquietud.id as Id, nombre, apellido, inquietud.asunto , inquietud.mensaje
+  from inquietud, emprendedor, resinquietud
+  where (idempresario = cedula) and (inquietud.id != idinquietud);`;
+  let response_db = await _pg.execute(sql);
+  let mensaje = response_db.rows;
+  console.log(mensaje);
+  res.render('AsesorInquietud.html', {mensaje: mensaje});
+});
+
+router.get('/Asesor/Formalizar', async (req, res) =>{
+  let sql = `select id, emprendedor.nombre, emprendedor.apellido,  nit, empresa.nombre as empresa, empresa.telefono
+  from empresa, emprendedor
+  where (cedula = idempresario) and ("formalizar" = false);`;
+  let response_db = await _pg.execute(sql);
+  let peticion = response_db.rows;
+  console.log(peticion);
+  res.render('AsesorFormalizar.html', {peticion: peticion});
 });
 
 router.get('/Admin/ELiminarAsesor/:cedula', async (req, res) => {
@@ -105,6 +124,17 @@ router.get('/Admin/ELiminarAsesor/:cedula', async (req, res) => {
   let row_count = response_db.rowCount;
   row_count == 1 ? true : false,
     res.redirect('/Admin/ListaAsesor');
+});
+
+router.get('/Asesor/Formalizar/Aprobado/:id', async (req, res) => {
+
+  let id = req.params.id;
+
+  let sql = `UPDATE empresa SET formalizar=true WHERE id='${id}';`;
+  let response_db = await _pg.execute(sql);
+  let row_count = response_db.rowCount;
+  row_count == 1 ? true : false,
+    res.redirect('/Asesor/Formalizar');
 });
 
 router.post("/Admin/AgregarAsesor", async (req, res) => {
@@ -288,5 +318,42 @@ router.post("/Usuario/RecuperarContra", async (req, res) => {
       }
   }
 })
+
+router.post('/Usuario/Contacto', async (req, res) => {
+  let {  cedula, asunto, mensaje } = req.body;
+  let errors = [];
+
+  console.log({
+    cedula,
+    asunto,
+    mensaje,
+  });
+
+  if(!cedula || !asunto || !mensaje){
+    errors.push({ message: "Espacio Vacio" });
+  }
+
+    let sql = `SELECT * FROM emprendedor
+    WHERE cedula='${cedula}';`
+    let response_db = await _pg.execute(sql);
+    let rows = response_db.rows;
+    let validar = rows.length;
+    if(validar != 1){
+      errors.push({ message: "La cedula no existe" });
+    };
+
+    if(errors.length > 0){
+      res.render('UsuarioContacto.html', {errors})
+    } else {
+      let sql = `INSERT INTO inquietud
+      (idempresario, asunto, mensaje)
+      VALUES('${cedula}', '${asunto}', '${mensaje}')`;
+      await _pg.execute(sql);
+
+      //Envia Informacion a la Base de datos y esperar Respuesta
+      req.flash("success_msg", "Envio correcto de inquietud");
+      res.redirect("/Usuario/Contacto");
+    }
+});
 
 module.exports = router; 
