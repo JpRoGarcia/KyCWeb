@@ -134,3 +134,11 @@ ul.dropdown-menu:hover {
   width: 2000px;
   height: auto;
 }
+
+a.item_blanco{
+  color: #ffff;
+}
+
+a.item_blanco.x:hover{
+  color: #ffff;
+}
