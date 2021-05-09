@@ -26,11 +26,29 @@
             <a class="nav-link" href="#"><i class="bi bi-film"></i> Editar asesores</a>
           </li>
           <li>
-            <a class="nav-link" href="/iniciosesion"><i class="bi bi-card-list"></i> Cerrar Sesión </a>
+            <a  onclick="cerrarsesion()" class="nav-link"><i class="bi bi-card-list"></i> Cerrar Sesión </a>
           </li>
         </ul>
       </div>
     </div>
   </nav>
-  
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.16.7/dist/sweetalert2.all.min.js"></script>  
+
+<script>
+    function cerrarsesion(){
+        Swal.fire({
+            title: 'confirmar cerrar seseión?',
+            icon:'warning',
+            showCancelButton: true,
+            confirmButtoncolor:'#3085d6',
+            cancelButtoncolor:'#d33',
+            confirmButtonText: `confirmar`,
+            }).then((result) => {
+               if (result.isConfirmed) {
+                window.location = '/Admin';
+                
+            } 
+            })
+    }
+</script>    
   
