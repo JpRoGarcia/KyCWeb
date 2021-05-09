@@ -75,11 +75,18 @@ router.get('/Admin/AgregarAsesor', (req, res) => {
   res.render('AdminAgregarAsesor.html', {title: "Agregar Asesor"});
 });
 
+router.get('/Admin/Editar', (req, res) =>{
+  res.render('AdminEditar.html',{title: "AdminEditar"})
+
+})
+
+
 // -------- Asesor --------
 
 router.get('/Asesor', (req, res) => {
   res.render('AsesorSesion.html', {title: "Inicio asesor"});
 });
+
 
 // -------- SQL --------  
 
