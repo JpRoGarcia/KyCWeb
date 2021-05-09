@@ -17,8 +17,8 @@ router.use(session({
   saveUninitialized: false
 }))
 
-
 // -------- INICIO --------
+
 router.get('/', (req, res) => {
   res.render('InicioIndex.html', {title: "Inicio"});
 });
@@ -80,13 +80,19 @@ router.get('/Admin/Editar', (req, res) =>{
 
 })
 
-
 // -------- Asesor --------
 
 router.get('/Asesor', (req, res) => {
   res.render('AsesorSesion.html', {title: "Inicio asesor"});
 });
 
+router.get('/Asesor/Respuesta', (req, res) => {
+  res.render('AsesorRespuesta.html', {title: "Respuesta"});
+});
+
+router.get('/Asesor/Editar', (req, res) => {
+  res.render('AsesorEditar.html', {title: "Editar"});
+});
 // -------- SQL --------  
 
 router.get('/Admin/ListaAsesor', async (req, res) =>{
