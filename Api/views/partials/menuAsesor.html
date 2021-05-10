@@ -1,43 +1,40 @@
 <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #069169;">
-    <div class="container p-2">
-      <a class="navbar-brand" href="/">Formally Groovy</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="/"><i class="fas fa-home"></i> asesor </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/listasesores"><i class="bi bi-journal"></i> lista de asesores</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#"><i class="bi bi-film"></i> Editar asesores</a>
-          </li>
-          <li>
-            <a class="nav-link" oncliclk="cerrarsesion()" ><i class="bi bi-card-list"></i> Cerrar Sesión </a>
-          </li>
-        </ul>
-      </div>
+  <div class="container p-2">
+    <a class="navbar-brand" href="/">Formally Groovy</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item ">
+          <a class="nav-link" href="/Asesor/Inquietud"><i class="bi bi-chat"></i> Mensajes pendientes</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/Asesor/Formalizar"><i class="bi bi-person-lines-fill"></i> Lista de aspirantes</a>
+        </li>
+        <li>
+          <a class="nav-link" oncliclk="cerrarsesion()"><i class="fas fa-sign-out-alt"></i> Cerrar Sesión </a>
+        </li>
+      </ul>
     </div>
-  </nav>
+  </div>
+</nav>
 
 <script>
-    function cerrarsesion(){
-        Swal.fire({
-            title: 'confirmar eliminar el asesor?',
-            icon:'warning',
-            showCancelButton: true,
-            confirmButtoncolor:'#3085d6',
-            cancelButtoncolor:'#d33',
-            confirmButtonText: `confirmar`,
-            }).then((result) => {
-               if (result.isConfirmed) {
-                window.location = '/Admin';
-                
-            } 
-            })
-    }
-</script>    
-  
+  function cerrarsesion() {
+    Swal.fire({
+      title: 'confirmar eliminar el asesor?',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtoncolor: '#3085d6',
+      cancelButtoncolor: '#d33',
+      confirmButtonText: `confirmar`,
+    }).then((result) => {
+      if (result.isConfirmed) {
+        window.location = '/Admin';
+
+      }
+    })
+  }
+</script>
